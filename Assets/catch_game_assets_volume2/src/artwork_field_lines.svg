@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs4">
+    <filter
+       y="-0.25"
+       x="-0.25"
+       height="1.5"
+       width="1.5"
+       color-interpolation-filters="sRGB"
+       id="filter52176">
+      <feGaussianBlur
+         result="result0"
+         in="SourceGraphic"
+         stdDeviation="6"
+         id="feGaussianBlur52178" />
+      <feDiffuseLighting
+         result="result5"
+         surfaceScale="10"
+         diffuseConstant="1"
+         id="feDiffuseLighting52180">
+        <feDistantLight
+           azimuth="235"
+           elevation="25"
+           id="feDistantLight52182" />
+      </feDiffuseLighting>
+      <feComposite
+         k3="0.6"
+         k2="0"
+         operator="arithmetic"
+         result="fbSourceGraphic"
+         in="result5"
+         k1="1"
+         in2="SourceGraphic"
+         id="feComposite52184"
+         k4="0" />
+      <feColorMatrix
+         id="feColorMatrix52186"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha" />
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="5.3"
+         in="fbSourceGraphicAlpha"
+         id="feGaussianBlur52188" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.511 0 "
+         type="matrix"
+         result="bluralpha"
+         id="feColorMatrix52190" />
+      <feOffset
+         result="offsetBlur"
+         dy="5"
+         dx="5"
+         in="bluralpha"
+         id="feOffset52192" />
+      <feMerge
+         id="feMerge52194">
+        <feMergeNode
+           in="offsetBlur"
+           id="feMergeNode52196" />
+        <feMergeNode
+           in="fbSourceGraphic"
+           id="feMergeNode52198" />
+      </feMerge>
+    </filter>
+    <filter
+       id="filter6641"
+       style="color-interpolation-filters:sRGB;"
+       x="-0.3"
+       y="-0.5"
+       height="2"
+       width="1.6">
+      <feTurbulence
+         id="feTurbulence6643"
+         result="result1"
+         numOctaves="5"
+         seed="0"
+         type="fractalNoise"
+         baseFrequency="0.4" />
+      <feDisplacementMap
+         id="feDisplacementMap6645"
+         in2="result1"
+         in="SourceGraphic"
+         scale="30"
+         yChannelSelector="G"
+         xChannelSelector="R" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="display:inline"
+     id="layer2">
+    <g
+       transform="translate(-10.012041,-50.797597)"
+       id="g3297">
+      <path
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter52176)"
+         d="m 388.03646,1079.9541 c -4.53376,-3.0137 -21.05329,-14.7703 -69.74433,-49.6355 -28.18991,-20.1853 -59.92867,-42.8882 -70.53058,-50.4507 l -19.2762,-13.75 -0.34398,-31.75 c -0.1892,-17.4625 -0.34418,-50.9312 -0.34442,-74.375 l -4.3e-4,-42.625 h 161.5 161.49998 l -0.013,74.125 -0.013,74.125 -4.612,3.2875 c -2.5367,1.8081 -28.6871,20.6936 -58.1121,41.9679 -53.4311,38.6306 -97.76318,70.5292 -97.91802,70.4558 -0.0451,-0.021 -0.98649,-0.6402 -2.09202,-1.375 z"
+         id="path52112"
+         transform="matrix(0.19021682,0,0,0.18676641,333.40308,509.20114)" />
+      <rect
+         style="display:inline;fill:none;stroke:#ffffff;stroke-width:10.47533321;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect52208"
+         width="64.45681"
+         height="86.362251"
+         x="279.22958"
+         y="630.2644" />
+      <rect
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.22465536"
+         id="rect52212"
+         width="220.91602"
+         height="5.3623667"
+         x="366.59366"
+         y="374.68445"
+         transform="matrix(0.83895617,0.54419899,-0.56606421,0.82436115,0,0)" />
+      <g
+         id="g6631"
+         transform="matrix(0.52845953,0,0,0.52845953,200.07303,383.22097)">
+        <rect
+           style="display:inline;fill:none;stroke:#ffffff;stroke-width:46.63651657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect52210"
+           width="282.90762"
+           height="390"
+           x="644.50708"
+           y="592.36218"
+           transform="matrix(0.43113417,0,0,0.41903238,231.48426,217.58337)" />
+        <rect
+           style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+           id="rect52214"
+           width="978"
+           height="24"
+           x="-1411.8665"
+           y="997.48322"
+           transform="matrix(-0.35860462,0.23261319,0.23933114,0.34853872,231.48426,217.58337)" />
+      </g>
+      <g
+         id="g6635"
+         style="opacity:0.15899999;filter:url(#filter6641)"
+         transform="matrix(0.52845953,0,0,0.52845953,200.07303,383.22097)">
+        <rect
+           transform="matrix(0.43113417,0,0,0.41903238,231.48426,217.58337)"
+           y="592.36218"
+           x="644.50708"
+           height="390"
+           width="282.90762"
+           id="rect6637"
+           style="display:inline;fill:none;stroke:#ffffff;stroke-width:46.63651657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           transform="matrix(-0.35860462,0.23261319,0.23933114,0.34853872,231.48426,217.58337)"
+           y="997.48322"
+           x="-1411.8665"
+           height="24"
+           width="978"
+           id="rect6639"
+           style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none" />
+      </g>
+      <g
+         style="opacity:0.18900003;filter:url(#filter6641)"
+         id="g6647"
+         transform="matrix(-0.52845953,0,0,0.52845953,613.65184,383.22097)">
+        <rect
+           style="display:inline;fill:none;stroke:#ffffff;stroke-width:46.63651657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6649"
+           width="282.90762"
+           height="390"
+           x="644.50708"
+           y="592.36218"
+           transform="matrix(0.43113417,0,0,0.41903238,231.48426,217.58337)" />
+        <rect
+           style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+           id="rect6651"
+           width="978"
+           height="24"
+           x="-1411.8665"
+           y="997.48322"
+           transform="matrix(-0.35860462,0.23261319,0.23933114,0.34853872,231.48426,217.58337)" />
+      </g>
+    </g>
+  </g>
+</svg>
