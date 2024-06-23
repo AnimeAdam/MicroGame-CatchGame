@@ -8,7 +8,7 @@ public class BallController : MonoBehaviour
     private const float rotateSpeed = 700f; //How fast it spins
     private const float scalingFactor = 10f; //How small the ball gets as it's moving
     private const float speed = 10f; //Speed the ball moves at
-
+    private const float shrinkingSpeed = 0.2f; //Speed the ball shrinks when thrown
     
     public GameObject target; //End target point
     
@@ -46,12 +46,20 @@ public class BallController : MonoBehaviour
     void Update()
     {
         SpinningBall();
+        ShrinkInSize();
     }
 
     //Spins the ball automatically.
     private void SpinningBall()
     {
         transform.Rotate(Vector3.forward, -rotateSpeed * Time.deltaTime, Space.Self);
+    }
+
+    //Shrinks the ball as it's thrown
+    private void ShrinkInSize()
+    {
+        if (transform.localScale.x > 0.001f)
+            transform.localScale -= shrinkingSpeed * Time.deltaTime * Vector3.one;
     }
 
     //Randomly sets the location of the target
