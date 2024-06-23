@@ -308,6 +308,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 91920445}
   flightPath: {fileID: 1375053924}
+  flightPathSpeeds:
+  - 0
+  - 1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
 --- !u!212 &161338091
 SpriteRenderer:
   m_ObjectHideFlags: 0

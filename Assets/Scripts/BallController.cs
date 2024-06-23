@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,9 @@ public class BallController : MonoBehaviour
     //Flight path of the ball
     public GameObject flightPath;
     private Transform[] flightPathTargets;
+    public float[] flightPathSpeeds;
     private int currentFlightPathTarget;
-
+    private List<(float time, Transform transform)> flightPathCollection = new List<ValueTuple<float, Transform>>(); //Contains the flight path and time
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +34,11 @@ public class BallController : MonoBehaviour
     private void BeginNextFlightPath()
     {
         currentFlightPathTarget++;
-        if (currentFlightPathTarget != flightPathTargets.Length)
+        if (currentFlightPathTarget != flightPathCollection.Count)
         {
-            StartCoroutine(MoveObjectAtTime(5f, flightPathTargets[currentFlightPathTarget].position));
+            StartCoroutine(MoveObjectAtTime(
+                flightPathCollection[currentFlightPathTarget].time
+                , flightPathCollection[currentFlightPathTarget].transform.position));
         }
     }
 
@@ -53,16 +57,26 @@ public class BallController : MonoBehaviour
     //Randomly sets the location of the target
     private void SelectTargetRandomLoc()
     {
-        float targetX = Random.Range(-7.5f, 7.5f);
-        float targetY = Random.Range(-5f, 5f);
+        float targetX = UnityEngine.Random.Range(-7.5f, 7.5f);
+        float targetY = UnityEngine.Random.Range(-5f, 5f);
         target.transform.position = new Vector2(targetX, targetY);
     }
 
-    //Setup the flight path to follow
+    //Setup the flight path to follow, starts at 0 because that is the parent, will be incremented at nextFlightPath
     private void InitialiseFlightPath()
     {
         flightPathTargets = flightPath.GetComponentsInChildren<Transform>();
-        currentFlightPathTarget = 1;
+        currentFlightPathTarget = 0;
+
+        if (flightPathTargets.Length != flightPathSpeeds.Length)
+        {
+            Debug.Log("There isn't enough targets for speeds in flight path at " + gameObject.name);
+            Debug.Break();
+        }
+        for(int i = 0; i < flightPathTargets.Length; i++)
+        {
+            flightPathCollection.Add(new ValueTuple<float, Transform>(flightPathSpeeds[i], flightPathTargets[i]));
+        }
     }
 
     //Simplified tweening movement animation.
@@ -80,7 +94,7 @@ public class BallController : MonoBehaviour
             yield return null;
         }
         //stops the coroutine
-        Invoke("BeginNextFlightPath", 1.0f);
+        BeginNextFlightPath();//Invoke("BeginNextFlightPath", 1.0f);
         yield break;
     }
 
