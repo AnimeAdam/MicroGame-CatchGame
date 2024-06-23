@@ -6,7 +6,6 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     private const float rotateSpeed = 700f; //How fast it spins
-    private const float scalingFactor = 10f; //How small the ball gets as it's moving
     private const float speed = 10f; //Speed the ball moves at
     private const float shrinkingSpeed = 0.2f; //Speed the ball shrinks when thrown
     
@@ -23,12 +22,8 @@ public class BallController : MonoBehaviour
     void Start()
     {
         SelectTargetRandomLoc();
-        //TODO: Add a function that iterates through the flight paths starting at 1 ending at the length
         InitialiseFlightPath();
         BeginNextFlightPath();
-
-        //Starts at 1 because 0 is the parent.
-        // StartCoroutine(MoveObjectAtTime(5f, flightPathTargets[1].position));
     }
 
     private void BeginNextFlightPath()
@@ -39,6 +34,10 @@ public class BallController : MonoBehaviour
             StartCoroutine(MoveObjectAtTime(
                 flightPathCollection[currentFlightPathTarget].time
                 , flightPathCollection[currentFlightPathTarget].transform.position));
+        }
+        else
+        {
+            StartCoroutine(MoveObjectAtTimeOnce(2f, target.transform.position)); //FINAL target for the ball to reach.
         }
     }
 
@@ -102,7 +101,26 @@ public class BallController : MonoBehaviour
             yield return null;
         }
         //stops the coroutine
-        BeginNextFlightPath();//Invoke("BeginNextFlightPath", 1.0f);
+        BeginNextFlightPath();
+        yield break;
+    }    
+    
+    //Simplified tweening movement animation.
+    public IEnumerator MoveObjectAtTimeOnce(float duration, Vector3 target)
+    {
+        // float duration = timeOfArrival; // - Time.time
+        float distance = Vector3.Distance(transform.position, target);
+        float speed = distance / duration;
+ 
+        while (transform.position != target)
+        {
+            //Not sure about the Time.deltaTime, maybe try without and tweak it to see what results you get
+            transform.position = Vector3.MoveTowards(transform.position, target, speed*Time.deltaTime);
+            //wait for the frame to finish calculating
+            yield return null;
+        }
+
+        //stops the coroutine
         yield break;
     }
 
