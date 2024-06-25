@@ -8,7 +8,7 @@ public class BallController : MonoBehaviour
     //Ball Properties
     private const float rotateSpeed = 900f; //How fast it spins.
     private const float shrinkingSpeed = 0.2f; //Speed the ball shrinks when thrown.
-    private const float minimumSize = 0.06f; //Minimum size for the ball to be for the glove to catch it.
+    private const float minimumSize = 0.13f; //Minimum size for the ball to be for the glove to catch it.
         
     //Flight path properties
     public GameObject flightPath;
@@ -140,7 +140,11 @@ public class BallController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player") && transform.localScale.x < minimumSize)
+        {
+            FindAnyObjectByType<GameManager>().BallWasCatched();
+            FindAnyObjectByType<PlayerController>().PlayCatchAnimation();
             Destroy(gameObject);
+        }
     }
 
     //Step 3: Destory after it's either too small or hits the glove.
