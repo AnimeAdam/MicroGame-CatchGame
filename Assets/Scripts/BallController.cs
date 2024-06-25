@@ -132,17 +132,20 @@ public class BallController : MonoBehaviour
 
     #endregion FlightPath
 
+    //Ball goes too far away so it's best to destory it.
     private void DestoryBallFromShrinking()
     {
         if (transform.localScale.x < 0.01f)
             Destroy(gameObject);
     }
 
+    //When the ball is catche it will call endgame functions.
     private void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player") && transform.localScale.x < minimumSize)
         {
             FindAnyObjectByType<GameManager>().BallWasCatched();
             FindAnyObjectByType<PlayerController>().PlayCatchAnimation();
+            Cursor.visible = true;
             Destroy(gameObject);
         }
     }

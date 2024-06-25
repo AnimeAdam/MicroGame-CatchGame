@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private void GloveSwaying()
     {
         //Animating the speed and max angle for the glove.
-        float rotationSpeed = 100.0f;
+        float rotationSpeed = 200.0f;
         float rotationAngle = 30.0f;
         
         Vector3 currentRotation = transform.eulerAngles;
@@ -54,5 +54,6 @@ public class PlayerController : MonoBehaviour
     {
         Sprite[] sprites = Resources.LoadAll<Sprite>("glove_10_closed");
         gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }
