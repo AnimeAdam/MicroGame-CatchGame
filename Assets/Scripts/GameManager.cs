@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GameDifficulty = Difficulty.difficulty;
+
 public class GameManager : MonoBehaviour
 {
     private bool isBallCatched;
+    public GameDifficulty gameDifficulty;
 
     public static GameManager Instance { get; private set; }
 
@@ -29,6 +32,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    public void SetDifficulty(GameDifficulty difficulty)
+    {
+        gameDifficulty = difficulty;
     }
 
     //Checking for Ball catching state
