@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GameDifficulty = Difficulty.difficulty;
+
 public class PlayerController : MonoBehaviour
 {
     bool rotateLeft; //If true will rotate left.
@@ -10,15 +12,37 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start () {
         rotateLeft = true;
+        InitialiseGlove();
     }
    
     // Update is called once per frame
     void Update ()
     {
-        if(!FindAnyObjectByType<GameManager>().IsBallCatched()) {
+        if(!FindAnyObjectByType<GameManager>().IsTheGloveFreezen()) {
             FollowMouse();
             GloveSwaying();
         }
+    }
+
+    //Set glove size based on Difficulty.
+    private void InitialiseGlove()
+    {
+        switch (GameManager.Instance.gameDifficulty)
+        {
+            case GameDifficulty.Easy:
+                transform.localScale = Vector3.one * 0.5f;
+            break;
+            case GameDifficulty.Medium:
+                transform.localScale = Vector3.one * 0.4f;
+            break;
+            case GameDifficulty.Hard:
+                transform.localScale = Vector3.one * 0.25f;
+            break;
+            default:
+            Debug.Log("Something has gone wrong with difficulty settings at " + gameObject.name);
+            break;
+        }
+        GameManager.Instance.UnFreezeTheGlove();
     }
 
     //Glove will sway left and right.

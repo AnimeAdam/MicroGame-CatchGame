@@ -135,23 +135,23 @@ public class BallController : MonoBehaviour
     //Ball goes too far away so it's best to destory it.
     private void DestoryBallFromShrinking()
     {
-        if (transform.localScale.x < 0.01f)
+        if (transform.localScale.x < 0.01f){
+            FindAnyObjectByType<GameManager>().FreezeTheGlove();
+            GameManager.Instance.ShowGameOver();
+            Cursor.visible = true;
             Destroy(gameObject);
+        }
     }
 
     //When the ball is catche it will call endgame functions.
     private void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player") && transform.localScale.x < minimumSize)
         {
-            FindAnyObjectByType<GameManager>().BallWasCatched();
+            FindAnyObjectByType<GameManager>().FreezeTheGlove();
             FindAnyObjectByType<PlayerController>().PlayCatchAnimation();
             Cursor.visible = true;
+            GameManager.Instance.ShowWinning();
             Destroy(gameObject);
         }
     }
-
-    //Step 3: Destory after it's either too small or hits the glove.
-    //Step 4: IF hit the glove then glove changes to catch animation.
-
-
 }
